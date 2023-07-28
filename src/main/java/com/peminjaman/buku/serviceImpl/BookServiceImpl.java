@@ -29,16 +29,14 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void saveBook(Book book) {
-        try {
-            Book book1 = bookRepository.findById(book.getId()).orElseThrow();
-            List<Book> allBooks = bookRepository.findAll();
-            if(allBooks.contains(book1)){
-                 System.out.println("Gagal Disimpan, ID Duplikat!");
-            }
-         } catch (Exception e) {
-             bookRepository.save(book);
-             System.out.println("Buku Telah Disimpan!");
-        }
+        book.setId(getSaltString());
+        book.setJudul(book.getJudul());
+        book.setPengarang(book.getPengarang());
+        book.setPenerbit(book.getPenerbit());
+        book.setTanggal_terbit(book.getTanggal_terbit());
+        book.setTebal_buku(book.getTebal_buku());
+        bookRepository.save(book);
+        System.out.println("Buku Telah Disimpan!");
     }
 
     @Override
@@ -87,6 +85,18 @@ public class BookServiceImpl implements BookService {
         Book book = bookRepository.findById(id).orElseThrow();
         bookRepository.delete(book);
         System.out.println("ID Buku : "+id+", Telah Berhasil Dihapus!");
+    }
+
+    protected String getSaltString() {
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 5) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
     }
 
 

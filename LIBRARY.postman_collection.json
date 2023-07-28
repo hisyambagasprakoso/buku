@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ea9492c6-f0e8-4b1f-9828-4df69b9be3e0",
+		"_postman_id": "6ca4cd22-4e92-4f7b-aa29-33a6e9f247e1",
 		"name": "LIBRARY",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -50,7 +50,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\" : \"A0005\",\r\n    \"judul\" : \"50 CM\",\r\n    \"pengarang\" : \"Dhony Dhirgantoro\",\r\n    \"penerbit\" : \"PT Grasindo\",\r\n    \"tanggal_terbit\" : \"2005-01-21\",\r\n    \"tebal_buku\" : 382\r\n}",
+					"raw": "{\r\n    \"judul\" : \"50 CM\",\r\n    \"pengarang\" : \"Dhony Dhirgantoro\",\r\n    \"penerbit\" : \"PT Grasindo\",\r\n    \"tanggal_terbit\" : \"2005-01-21\",\r\n    \"tebal_buku\" : 382\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -130,7 +130,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/book/A0005",
+					"raw": "localhost:8080/api/book/IL5GN",
 					"host": [
 						"localhost"
 					],
@@ -138,7 +138,7 @@
 					"path": [
 						"api",
 						"book",
-						"A0005"
+						"IL5GN"
 					]
 				}
 			},
